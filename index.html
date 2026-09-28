@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life with Facts</title>
+    <link rel="stylesheet" href="lwf.css">
+</head>
+<body>
+
+    <nav class="nav">
+        <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJWcR81G3neBo-KLXXYOgYJHpdyEXr-2BPaNS_cY_fpOdzB52bk8zU0os&s=10"
+            alt="Know the Facts logo"
+            class="logo"
+        >
+
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="science.html">Science</a>
+            <a href="history.html">History</a>
+             <a href="contact.html">contact</a>
+        </div>
+
+        <div class="nav-actions">
+            <!-- Profile trigger icon and name -->
+            <div class="pnav" id="profileName" role="button" tabindex="0">
+                👨‍💻 Guest
+            </div>
+            <button class="login" id="loginBtn">LOG IN</button>
+        </div>
+
+        <div class="profile-popup" id="profilePopup">
+            <button class="close-profile" id="closeProfile" aria-label="Close Profile">×</button>
+
+            <h2>My Profile</h2>
+
+            <p>
+                <strong>Username:</strong>
+                <span id="popupUsername">Guest</span>
+            </p>
+
+            <p>
+                <strong>User ID:</strong>
+            </p>
+            <p id="popupUID" class="uid"></p>
+
+            <label for="bio">Bio</label>
+            <textarea
+                id="bio"
+                placeholder="Write something about yourself..."
+            ></textarea>
+
+            <button id="saveBio">Save Bio</button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="h1">Life with facts</div>
+        <div class="hii">Hii!! 👋 Welcome Guest</div>
+        <h1 class="h2">🌌 Step into the world of knowledge! 🧠✨</h1>
+        
+        <div class="smt">Wanna get interesting??</div>
+
+        <button class="rq" id="nextQuestionBtn">Random question</button>
+        <div class="ra" id="answerBox">Get answer</div>
+    </main>
+
+    <script type="module" src="lwf.js"></script>
+</body>
+</html>

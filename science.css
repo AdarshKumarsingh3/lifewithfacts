@@ -1,0 +1,220 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: clamp(16px, 1.15vw, 20px);
+}
+
+body {
+    background: linear-gradient(135deg, rgba(0, 20, 100, 0.85) 20%, rgba(140, 5, 20, 0.85) 100%);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #0b0c10;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: azure;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6.5rem;
+    padding-bottom: 4rem;
+}
+
+/* NAVBAR */
+.nav {
+    background: linear-gradient(to right, rgba(18, 1, 23, 0.96), rgba(22, 0, 0, 0.96));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 0.8rem 2.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.25);
+}
+
+.logo {
+    height: 52px;
+    width: auto;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+}
+
+a {
+    position: relative;
+    text-decoration: none;
+    color: azure;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: gold;
+    box-shadow: 0 0 8px gold;
+    transition: width 0.3s ease;
+}
+
+a:hover::after,
+a.active::after {
+    width: 100%;
+}
+
+/* CARDS CONTAINER */
+#parentholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    width: min(900px, 94%);
+    margin: 2rem auto;
+    padding: 0 0.5rem;
+}
+
+/* FLASHCARD BASE */
+.flashcard {
+    width: 100%;
+    max-width: 750px;
+    min-height: 200px;
+    padding: 1.8rem;
+    background-color: rgba(17, 17, 24, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    border: 2px solid gold;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.flashcard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.35);
+}
+
+.flashcard:active {
+    transform: scale(0.99);
+}
+
+/* CARD IMAGE */
+.factImage {
+    display: none;
+    max-width: 100%;
+    width: min(480px, 100%);
+    max-height: 380px;
+    border-radius: 14px;
+    object-fit: cover;
+    margin-bottom: 1.2rem;
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* FACT TEXT STYLING */
+#factText1,
+#factText2,
+#factText3,
+#factText4 {
+    background-color: rgba(255, 215, 0, 0.95);
+    border: 2px solid goldenrod;
+    border-radius: 12px;
+    padding: 1.2rem 1.6rem;
+    box-shadow: 0 4px 14px rgba(255, 115, 0, 0.45);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #111;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+    width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Expanded Reading State */
+.flashcard.expanded #factText1,
+.flashcard.expanded #factText2,
+.flashcard.expanded #factText3,
+.flashcard.expanded #factText4 {
+    background-color: rgba(20, 20, 20, 0.95);
+    color: #f1f1f1;
+    border-color: gold;
+    font-weight: 400;
+    font-size: 1.05rem;
+    text-align: left;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+/* MOBILE ADAPTATION (< 768px) */
+@media (max-width: 768px) {
+    body {
+        padding-top: 8rem;
+    }
+
+    .nav {
+        flex-direction: column;
+        padding: 0.8rem 1rem;
+        gap: 0.8rem;
+    }
+
+    .nav-links {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo {
+        height: 48px;
+    }
+
+    #parentholder {
+        gap: 1.6rem;
+        width: 94%;
+    }
+
+    .flashcard {
+        padding: 1.2rem;
+        min-height: 160px;
+    }
+
+    #factText1,
+    #factText2,
+    #factText3,
+    #factText4 {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .factImage {
+        max-height: 240px;
+    }
+}

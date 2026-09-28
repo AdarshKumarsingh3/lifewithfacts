@@ -1,0 +1,158 @@
+*{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      background:
+      linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+      url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1974&auto=format&fit=crop');
+
+      background-size:cover;
+      background-position:center;
+      overflow:hidden;
+    }
+
+    .box{
+      width:400px;
+      padding:40px;
+      border-radius:25px;
+      background:rgba(255,255,255,0.12);
+      backdrop-filter:blur(12px);
+      color:white;
+      animation:cardShow 1s ease;
+      box-shadow:0 10px 35px rgba(0,0,0,0.4);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .box::before,
+    .box::after{
+      content:'';
+      position:absolute;
+      border-radius:50%;
+      animation:float 6s ease-in-out infinite;
+    }
+
+    .box::before{
+      width:180px;
+      height:180px;
+      background:rgba(0,191,255,0.25);
+      top:-60px;
+      right:-60px;
+    }
+
+    .box::after{
+      width:160px;
+      height:160px;
+      background:rgba(255,255,255,0.08);
+      bottom:-70px;
+      left:-70px;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:10px;
+      position:relative;
+      z-index:2;
+    }
+
+    p{
+      text-align:center;
+      margin-bottom:25px;
+      color:#ddd;
+      position:relative;
+      z-index:2;
+    }
+
+    input{
+      width:100%;
+      padding:15px;
+      margin-top:15px;
+      border:none;
+      border-radius:12px;
+      outline:none;
+      background:rgba(255,255,255,0.18);
+      color:white;
+      font-size:15px;
+      transition:0.3s;
+      position:relative;
+      z-index:2;
+    }
+
+    input::placeholder{
+      color:#eee;
+    }
+
+    input:focus{
+      background:rgba(255,255,255,0.3);
+      transform:scale(1.03);
+      box-shadow:0 0 15px rgba(0,191,255,0.4);
+    }
+
+    button{
+      width:100%;
+      padding:15px;
+      margin-top:22px;
+      border:none;
+      border-radius:12px;
+      background:#00bfff;
+      color:white;
+      font-size:17px;
+      cursor:pointer;
+      transition:0.3s;
+      font-weight:bold;
+      position:relative;
+      z-index:2;
+    }
+
+    button:hover{
+      transform:translateY(-3px);
+      background:#009acd;
+      box-shadow:0 8px 18px rgba(0,191,255,0.4);
+    }
+
+    button:active{
+      transform:scale(0.95);
+    }
+
+    .bottom{
+      margin-top:18px;
+      text-align:center;
+      position:relative;
+      z-index:2;
+    }
+
+    a{
+      color:#00d9ff;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    a:hover{
+      text-decoration:underline;
+    }
+
+    @keyframes cardShow{
+      from{
+        opacity:0;
+        transform:translateY(80px) scale(0.9);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+      }
+    }
+
+    @keyframes float{
+      0%{ transform:translateY(0px); }
+      50%{ transform:translateY(20px); }
+      100%{ transform:translateY(0px); }
+    }
