@@ -536,7 +536,7 @@
                 // Stores data directly into the 'contact_messages' node in Firebase
                 const messagesRef = ref(database, "contact_messages");
                 await push(messagesRef, messageData);
-
+                  statusMessage.style.display = "flex";
                 statusMessage.textContent = "Message sent successfully! Thanks for reaching out.";
                 statusMessage.className = "status-msg success";
                 contactForm.reset();
